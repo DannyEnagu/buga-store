@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  db:
+    container_name: buga-store-db
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432" # Host machine:Container -> port mapping
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data: {}
